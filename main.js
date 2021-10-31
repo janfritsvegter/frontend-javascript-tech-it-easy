@@ -161,3 +161,92 @@ const inventory = [
     sold: 8,
   },
 ];
+
+// array voor de tabelhoofd namen
+const specs = [
+  "type",
+  "name",
+  "brand",
+  "price",
+  "availableSizes",
+  "refreshRate",
+  "screenType",
+  "screenQuality",
+  "smartTv",
+  "originalStock",
+  "sold",];
+
+// voor de tabelhoofdnamen maar dan de options
+const options = [
+  "wifi",
+  "speech",
+  "hdr",
+  "bluetooth",
+  "ambiLight",
+];
+
+//functie die een tabel creert
+// voor de bonusopdracht is al ingebakken dat als er al een tabel is die eerst wordt leeggemaakt/verwijderd
+// voordat de nieuwe wordt geplaatst
+function makeTable(id, arr, colRed, colRed2 , cssClass) {
+  const listTvSpecial = document.getElementById(id);
+  // indien er al een tabel is deze leegmaken
+  while (listTvSpecial.firstChild) {
+    listTvSpecial.removeChild(listTvSpecial.lastChild);
+  }
+
+  const rowHead = document.createElement("tr");
+  for (let i = 0; i < specs.length; i++) {
+    const cel = document.createElement("td");
+    const paragraph = document.createElement("p");
+    paragraph.textContent = specs[i];
+    cel.appendChild(paragraph);
+    rowHead.appendChild(cel);
+  }
+  for (let i = 0; i < options.length; i++) {
+    const cel = document.createElement("td");
+    const paragraph = document.createElement("p");
+    paragraph.textContent = options[i];
+    cel.appendChild(paragraph);
+    rowHead.appendChild(cel);
+  }
+
+  listTvSpecial.appendChild(rowHead);
+
+  for (let i = 0; i < arr.length; i++) {
+    const row = document.createElement("tr");
+    for (let j = 0; j < specs.length; j++) {
+      const cel = document.createElement("td");
+      const temp = specs[j];
+      if (temp === colRed || temp === colRed2) {
+        const paragraph2 = document.createElement("p");
+        paragraph2.textContent = arr[i][temp];
+        paragraph2.setAttribute("class", cssClass);
+        cel.appendChild(paragraph2);
+      } else {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = arr[i][temp];
+        cel.appendChild(paragraph);
+      }
+      row.appendChild(cel);
+    }
+    for (let j = 0; j < options.length; j++) {
+      const cel = document.createElement("td");
+      const temp = options[j];
+      if (temp === colRed || temp === colRed2) {
+        const paragraph2 = document.createElement("p");
+        paragraph2.textContent = arr[i].options[temp];
+        paragraph2.setAttribute("class", cssClass);
+        cel.appendChild(paragraph2);
+      } else {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = arr[i].options[temp];
+        cel.appendChild(paragraph);
+      }
+
+      row.appendChild(cel);
+    }
+    listTvSpecial.appendChild(row);
+
+  }
+}
