@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-bottom: 50px;
+}
+
+h1, h2, h3, h4 {
+    margin: 5px;
+}
+
+/* Opdracht 1 */
+ul {
+    display: block;
+    list-style-type: disc;
+    padding-left: 40px;
+}
+
+table, tr, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+table {
+    margin-left: 15px;
+    border-collapse: collapse;
+}
+
+.red {
+    color: red;
+    text-align: center;
+}
+
+.green {
+    color: green;
+    text-align: center;
+}
+
+.blue {
+    color: blue;
+    text-align: center;
+}
+
+.margin {
+    margin-left: 35px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
