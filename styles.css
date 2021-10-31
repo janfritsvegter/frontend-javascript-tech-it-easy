@@ -44,3 +44,11 @@ table {
     color: blue;
     text-align: center;
 }
+
+.margin {
+    margin-left: 35px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
